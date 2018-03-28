@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    
+	<link href="css/mapStyle.css" type="text/css" rel="stylesheet" />
+	<link href="css/stars.css" type="text/css" rel="stylesheet" />
+	
+  </head>
+  <body>
+ 
+ 
+	<img src="images/logo.png" class="logo" alt="SpaceX" />
+ 
+	<div class="container">
+	
+		<div class="location">
+			<h2>Currently approaching</h2>
+			<h1>FLORIDA, U.S.A.</h1>
+			
+			<h2 class="land">Where would you like to land?</h2>
+		</div>
+	
+		<div id="map"></div>	
+		 
+	
+	</div> <!--container-->
+	
+		<!--Stars-->
+		<div id='stars'></div>
+		<div id='stars2'></div>
+		<div id='stars3'></div>
+		<!--einde Stars-->	
+	
+    <script>
+      function initMap() {
+       	
+			var mapOptions = {
+                    // How zoomed in you want the map to start at (always required)
+                    zoom: 10,
+
+                    // The latitude and longitude to center the map (always required)
+                    center: new google.maps.LatLng(28.529168, -80.665986), // Florida
+
+                    // How you would like to style the map. 
+                    // This is where you would paste any style found on Snazzy Maps.
+                    styles: [{"featureType":"all","elementType":"all","stylers":[{"lightness":"42"},{"visibility":"on"},{"hue":"#ff0000"},{"saturation":"-100"},{"gamma":"0.78"},{"weight":"0.37"},{"invert_lightness":true}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#3ec7c9"},{"visibility":"on"}]}]
+                };
+			var mapElement = document.getElementById('map');
+
+            // Create the Google Map using our element and options defined above
+            var map = new google.maps.Map(mapElement, mapOptions);
+				
+		// Icon markers
+		var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+        var icons = {
+          parking: {
+            icon: iconBase + 'parking_lot_maps.png'
+          },
+          library: {
+            icon: iconBase + 'library_maps.png'
+          },
+          info: {
+            icon: iconBase + 'info-i_maps.png'
+          }
+        };
+
+        var features = [
+          {
+            position: new google.maps.LatLng(28.399725, -80.613980),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(28.398592, -80.615777),
+            type: 'library'
+          }, {
+            position: new google.maps.LatLng(28.394938, -80.612977),
+            type: 'info'
+          }, 
+        ];
+		
+		  // Create markers.
+        features.forEach(function(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            map: map
+          });
+        });
+		
+	};
+       
+		
+		
+		
+    </script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8JbAu3Ce8A15wBevk4UwCtYFAgRoiDzM&callback=initMap"
+    async defer></script>
+  </body>
+</html>
