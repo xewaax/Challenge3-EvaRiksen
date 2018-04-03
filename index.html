@@ -16,14 +16,21 @@
  
 	<div class="container">
 	
-		<div class="location">
+		<div class="location space-around">
 			<h2>Currently approaching</h2>
 			<h1>FLORIDA, U.S.A.</h1>
 			
 			<h2 class="land">Where would you like to land?</h2>
+						
+			<div id="cleverbot">
+				<textarea id="bot" readonly="readonly" rows="5" cols="30"></textarea>
+				<input type="text" id="chatInput"/>
+				<input type="submit" value="Send" id="chatSend"/>	
+			</div>
+			
 		</div>
 	
-		<div id="map"></div>	
+		<div id="map" class="space-around"></div>	
 		 
 	
 	</div> <!--container-->
@@ -97,5 +104,6 @@
     </script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8JbAu3Ce8A15wBevk4UwCtYFAgRoiDzM&callback=initMap"
     async defer></script>
+	<script src="js/main.js" type="text/javascript"></script>
   </body>
 </html>

@@ -36,6 +36,14 @@ html, body {
 	z-index: 10;
 }
 
+textarea {
+    resize: none;
+}
+
+#chatInput {
+	margin-top: 10px;
+}
+
 /* Text */
 h1 {
 	color: white;
@@ -77,7 +85,7 @@ h2.land {
 @media only screen and (min-width : 900px) {
 /* Styles */
 .container {
-	flex-direction: row;
+	flex-direction: row;	
 }
 
 #map {
@@ -87,8 +95,13 @@ h2.land {
 
 .location {
 	order:1;
-	align-self: flex-start;
-	margin-right: 40px;
+	align-self: flex-start;	
+	margin-right: 80px;
+}
+
+/* fix dit */
+.space-around{
+	justify-content: space-around;
 }
 
 h1 {
