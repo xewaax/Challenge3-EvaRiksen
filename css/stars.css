@@ -1,10 +1,5 @@
 /*Starry background*/
 
-html {
-  height:1100px;
-  
-  overflow: hidden;
-}
 #stars {
 	
   width: 1px;

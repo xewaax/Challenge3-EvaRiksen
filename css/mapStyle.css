@@ -15,7 +15,7 @@ html, body {
    
     margin: 0;
     padding: 0;
-	background-color:#141D39;
+	background-color:#141D39;	
 }
 
 .logo{
@@ -32,17 +32,80 @@ html, body {
 #map {
     height: 50vh;
 	width: 90vw;	
-	margin: 20px auto 0 auto;
+	margin: 20px auto 20px auto;
 	z-index: 10;
+}
+
+/* Location div rechts */
+
+.location {
+	margin-top: 20px;
+	line-height:0.1;	
+	text-align: center;
+}
+
+.divContainer{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+#cleverbot{
+	display: flex;	
+	align-items: center;	
+	text-align: center;
+}
+
+div.robot4{
+	display: none;
+}
+
+.chatbox {
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	text-align: center;
 }
 
 textarea {
     resize: none;
+	overflow: auto;
 }
 
-#chatInput {
-	margin-top: 10px;
+textarea#bot {
+	width: 60vw;
+	height: 15vh;
+	border: 2px solid #A9A9A9;
+	border-radius: 5px;
+	padding: 5px;
+	font-family: poppins, sans-serif;
 }
+
+input#chatInput{
+	width: 60vw;
+	height: 2vh;
+	border: 2px solid #A9A9A9;
+	border-radius: 5px;
+	padding: 5px;
+	margin-top: 10px;
+	font-family: poppins, sans-serif;
+}
+
+input#chatSend {
+	font-family: abel, sans-serif;
+	font-size: 1.2em;
+    background-color: #3EC7C9;
+    border-radius: 5px;
+	border: none;
+    color: white;
+    padding: 6px 16px;
+    text-decoration: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Einde location div rechts */
 
 /* Text */
 h1 {
@@ -60,13 +123,6 @@ h2 {
 h2.land {
 	line-height: 2;
 }
-
-.location {
-	margin-top: 20px;
-	line-height:0.1;
-	text-align: center;
-}
-
 /* Text end */
 
 
@@ -77,13 +133,25 @@ h2.land {
 #map {
     height: 50vh;
 	width: 80vw;
+}	
+
+div.robot4{
+	display: block;
 }
 
-} /* end query */
+} 
+
+/* end query */
 
 
 @media only screen and (min-width : 900px) {
 /* Styles */
+
+html, body {
+	
+	overflow-y: hidden;
+}
+
 .container {
 	flex-direction: row;	
 }
@@ -93,16 +161,25 @@ h2.land {
 	width: 50vw;	
 }
 
+
+
 .location {
 	order:1;
 	align-self: flex-start;	
 	margin-right: 80px;
+
 }
 
-/* fix dit */
-.space-around{
-	justify-content: space-around;
+textarea#bot {
+	width: 20vw;
+	height: 15vh;
 }
+
+input#chatInput{
+	width: 20vw;
+	height: 2vh;
+} 	
+
 
 h1 {
 	font-size: 4em;

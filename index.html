@@ -7,6 +7,7 @@
     
 	<link href="css/mapStyle.css" type="text/css" rel="stylesheet" />
 	<link href="css/stars.css" type="text/css" rel="stylesheet" />
+	<link href="css/robot.css" type="text/css" rel="stylesheet" />
 	
   </head>
   <body>
@@ -16,21 +17,31 @@
  
 	<div class="container">
 	
-		<div class="location space-around">
+		<div class="location">
 			<h2>Currently approaching</h2>
 			<h1>FLORIDA, U.S.A.</h1>
-			
-			<h2 class="land">Where would you like to land?</h2>
+				<div class="divContainer">									
+					
+						<h2 class="land">Hello! I am Cleverbot, your companion. Ask me anything.</h2>
+									
+						<div id="cleverbot">
 						
-			<div id="cleverbot">
-				<textarea id="bot" readonly="readonly" rows="5" cols="30"></textarea>
-				<input type="text" id="chatInput"/>
-				<input type="submit" value="Send" id="chatSend"/>	
-			</div>
-			
-		</div>
+							<div class="robot4"></div>
+						
+							<div class="chatbox">
+								<textarea id="bot" readonly="readonly" placeholder="Hi there! You can talk to me if you want to." ></textarea>
+								<input type="text" id="chatInput"/>
+								<input type="submit" value="Send" id="chatSend"/>	
+							</div>
+						</div> <!--cleverbot-->				
+				
+					
+				</div> <!--divContainer-->
+				
+		</div> <!--location-->
+		
 	
-		<div id="map" class="space-around"></div>	
+		<div id="map"></div>	
 		 
 	
 	</div> <!--container-->
