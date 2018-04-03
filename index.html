@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Simple Map</title>
+    <title>Spacex Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     
@@ -41,18 +41,19 @@
 					
 				</div> <!--divContainer-->
 				
+				<div class="legenda">
+					<span><img src="images/flag.png" alt="flag" /><h2 class="land">= Landing spot</h2></span>
+					<img src="images/hotel.png" alt="hotel" /><h2 class="land">= Hotel</h2>
+					</br>
+					<img src="images/restaurant.png" alt="restaurant" /><h2 class="land">= Restaurant</h2>
+					<img src="images/point.png" alt="poi" /><h2 class="land">= Point Of Interest</h2>
+		
+				</div> <!--legenda-->
+				
 		</div> <!--location-->
 		
 	
-		<div id="map"></div>
-
-		<div class="legenda">
-			<img src="images/flag.png" alt="flag" /><h2 class="land">= Landing spot</h2>
-			<img src="images/hotel2.png" alt="hotel" /><h2 class="land">= Hotel</h2>
-			<img src="images/restaurant.png" alt="restaurant" /><h2 class="land">= Restaurant</h2>
-			<img src="images/point.png" alt="poi" /><h2 class="land">= Point Of Interest</h2>
-		
-		</div>
+		<div id="map"></div>	
 		 
 	
 	</div> <!--container-->
@@ -92,17 +93,11 @@
             // Create the Google Map using our element and options defined above
              map = new google.maps.Map(mapElement, mapOptions);
 				
-		// Icon markers		
+		// Landing icon marker		
         var icons = {
           land: {
             icon: 'images/flag.png',			
-          },
-          hotel: {
-            icon: 'images/hotel2.png'
-          },
-          food: {
-            icon: 'images/restaurant.png'
-          }
+			}          
         };
 
         var features = [
@@ -112,7 +107,7 @@
           } 
         ];
 		
-		  // Create markers.
+		  // Create marker
         features.forEach(function(feature) {
           var marker = new google.maps.Marker({
             position: feature.position,
@@ -121,8 +116,7 @@
           });
         });
 		
-	};
-       
+	};      
 		
 		
 		

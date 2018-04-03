@@ -36,9 +36,6 @@ html, body {
 	z-index: 10;
 }
 
-span img{
-	display: inline;
-}
 
 /* Location div rechts */
 
@@ -109,6 +106,10 @@ input#chatSend {
     cursor: pointer;
 }
 
+.legenda {
+	padding-top: 40px;
+}
+
 /* Einde location div rechts */
 
 /* Text */
@@ -126,6 +127,7 @@ h2 {
 
 h2.land {
 	line-height: 2;
+	display: inline-block;
 }
 /* Text end */
 
@@ -169,8 +171,6 @@ html, body {
     height: 85vh;
 	width: 50vw;	
 }
-
-
 
 .location {
 	order:1;

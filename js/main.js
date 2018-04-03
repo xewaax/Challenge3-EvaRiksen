@@ -1,6 +1,6 @@
 function getAPIdata(input) {
 
-	// get random dog image
+	// Cleverbot api
 	fetch('https://www.cleverbot.com/getreply?key=CC8i5DDHGwKbEH8FpWkSLtVXcrA&input=' + input)
 	
 	// parse to JSON format -> dit is altijd hetzelfde
@@ -32,19 +32,19 @@ function scrollDown(){
 		elem.scrollTop = elem.scrollHeight;	
 }
 
-// init data stream
 
 //Event listener toevoegen voor enter op de input (chatInput) 
-//--> $("chatSend").click();
+
 document.getElementById('chatInput').onkeydown = function(e){
    if(e.keyCode == 13){
      document.getElementById("chatSend").click();
    }
 };
 
-document.getElementById('chatSend').onclick = function(){
-	//Show loading image
-	//Jouw input moet weg --> moet in tekstbox komen
+//Event listener toevoegen voor button click
+
+document.getElementById('chatSend').onclick = function(){	
+	
 	var input = document.getElementById('chatInput').value;
 
 	document.getElementById('bot').innerHTML += 'You: ' + input + '\r\n';
@@ -75,7 +75,7 @@ document.getElementById('chatSend').onclick = function(){
 		}
 	}
 	
-	//activiteiten search
+	//Fun search
 	for (i = 0; i < funArray.length; i++) {
 	   if (input.toLowerCase().indexOf(funArray[i]) != -1){
 		funSearch = true;
@@ -84,11 +84,11 @@ document.getElementById('chatSend').onclick = function(){
 	if (sleepSearch) {
 		document.getElementById('bot').innerHTML += 'Jarvis: Here are a few hotels nearby where you can get some rest. \r\n';
 		
-		addMarker(new google.maps.LatLng(28.399725, -80.613980),'images/hotel2.png');
+		addMarker(new google.maps.LatLng(28.399725, -80.613980),'images/hotel.png');
 		
-		addMarker(new google.maps.LatLng(28.398592, -80.615777),'images/hotel2.png');
+		addMarker(new google.maps.LatLng(28.398592, -80.615777),'images/hotel.png');
 		
-		addMarker(new google.maps.LatLng(28.394938, -80.612977),'images/hotel2.png');
+		addMarker(new google.maps.LatLng(28.394938, -80.612977),'images/hotel.png');
 		
 		map.setCenter(new google.maps.LatLng(28.399725, -80.613980));
 		map.setZoom(15);
@@ -120,6 +120,8 @@ document.getElementById('chatSend').onclick = function(){
 		
 
 	} else{
+		
+	//Wanneer er geen triggerwoorden in de input zitten, dan geeft de cleverbot zelf een antwoord
 		getAPIdata(input);
 	}			
 	
