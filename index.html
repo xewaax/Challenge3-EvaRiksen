@@ -5,6 +5,7 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     
+	<link rel="shortcut icon" type="image/png" href="images/flag.png"/>
 	<link href="css/mapStyle.css" type="text/css" rel="stylesheet" />
 	<link href="css/stars.css" type="text/css" rel="stylesheet" />
 	<link href="css/robot.css" type="text/css" rel="stylesheet" />
@@ -22,14 +23,16 @@
 			<h1>FLORIDA, U.S.A.</h1>
 				<div class="divContainer">									
 					
-						<h2 class="land">Hello! I am Cleverbot, your companion. Ask me anything.</h2>
+						<h2 class="land">We are getting close to earth! 
+						</br>
+						You can ask Jarvis about nearby places.</h2>
 									
 						<div id="cleverbot">
 						
 							<div class="robot4"></div>
 						
 							<div class="chatbox">
-								<textarea id="bot" readonly="readonly" placeholder="Hi there! You can talk to me if you want to." ></textarea>
+								<textarea id="bot" readonly="readonly" placeholder="Hi there! Feel free to talk to me." ></textarea>
 								<input type="text" id="chatInput"/>
 								<input type="submit" value="Send" id="chatSend"/>	
 							</div>
@@ -41,7 +44,15 @@
 		</div> <!--location-->
 		
 	
-		<div id="map"></div>	
+		<div id="map"></div>
+
+		<div class="legenda">
+			<img src="images/flag.png" alt="flag" /><h2 class="land">= Landing spot</h2>
+			<img src="images/hotel2.png" alt="hotel" /><h2 class="land">= Hotel</h2>
+			<img src="images/restaurant.png" alt="restaurant" /><h2 class="land">= Restaurant</h2>
+			<img src="images/point.png" alt="poi" /><h2 class="land">= Point Of Interest</h2>
+		
+		</div>
 		 
 	
 	</div> <!--container-->
@@ -53,11 +64,21 @@
 		<!--einde Stars-->	
 	
     <script>
+		var map;
+		
+		function addMarker(point, pic){
+			var marker = new google.maps.Marker({
+				position: point,
+				icon: pic,
+				map: map
+			  });
+		}
+		
       function initMap() {
        	
 			var mapOptions = {
                     // How zoomed in you want the map to start at (always required)
-                    zoom: 10,
+                    zoom: 10.5,
 
                     // The latitude and longitude to center the map (always required)
                     center: new google.maps.LatLng(28.529168, -80.665986), // Florida
@@ -69,33 +90,26 @@
 			var mapElement = document.getElementById('map');
 
             // Create the Google Map using our element and options defined above
-            var map = new google.maps.Map(mapElement, mapOptions);
+             map = new google.maps.Map(mapElement, mapOptions);
 				
-		// Icon markers
-		var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+		// Icon markers		
         var icons = {
-          parking: {
-            icon: iconBase + 'parking_lot_maps.png'
+          land: {
+            icon: 'images/flag.png',			
           },
-          library: {
-            icon: iconBase + 'library_maps.png'
+          hotel: {
+            icon: 'images/hotel2.png'
           },
-          info: {
-            icon: iconBase + 'info-i_maps.png'
+          food: {
+            icon: 'images/restaurant.png'
           }
         };
 
         var features = [
-          {
-            position: new google.maps.LatLng(28.399725, -80.613980),
-            type: 'parking'
-          }, {
-            position: new google.maps.LatLng(28.398592, -80.615777),
-            type: 'library'
-          }, {
-            position: new google.maps.LatLng(28.394938, -80.612977),
-            type: 'info'
-          }, 
+          {		  
+		  position: new google.maps.LatLng(28.510729, -80.679622),
+            type: 'land'
+          } 
         ];
 		
 		  // Create markers.
